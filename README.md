@@ -29,9 +29,6 @@ A developer checklist mostly derived from the book **Clean Code by Robert C Mart
 - [x] **Do not encode name with data structure**
   - Use `accounts` instead of `accountList`.
 
-- [x] **Do not use names which vary in small ways**
-  - Find the difference between `ControllerForEfficientHandlingOfStrings` and `ControllerForEfficientStorageOfStrings` :dancers:
-
 - [x] **Do not name variables just to satisfy the compiler**
   - Don't name something `name1` cause `name` is already taken.
 
@@ -53,22 +50,10 @@ A developer checklist mostly derived from the book **Clean Code by Robert C Mart
 - [x] **The length of a name should correspond to the size of its scope**
   - There can be a variable `i` inside a `for loop` but `i` should never be a `instance variable`.
 
-- [x] **Classes and objects should have noun or noun phrase names.**
-  - Avoid words like `Manager`, `Processor`, `Data`, or `Info` in the name of a class.
-  - If your class name ends with `er`,  `or` or `utils`, you should consider re looking at the responsibility of the class.
-  - A class name should not be a verb.
-
 - [x] **Methods should have verb or verb phrase names**
-
-- [x] **When constructors are overloaded, try to use static factory methods with names that describe the** **arguments**
-  - `Complex fulcrumPoint = Complex.FromRealNumber(23.0)`is better than `Complex fulcrumPoint = new Complex(23.0)`
 
 - [x] **Pick one word for one abstract concept and stick with it**
     - For instance, it’s confusing to have `fetch`, `retrieve`, and `get` as equivalent methods of different classes.
-
-- [x] **Don’t add gratuitous context**
-  - For application "Gas Station Deluxe," it is a bad idea to prefix every class with `GSD`.
-  - For example use `AccountAddress` instead of `GSDAccountAddress`
 
 - [x] **It's okay to use computer science terms, algorithm names, pattern names, math terms**
   - Always using the problem domain to get names might result in complication, hence we can use solution domain names on need.
@@ -99,23 +84,10 @@ A developer checklist mostly derived from the book **Clean Code by Robert C Mart
 - [x] **Functions should not have sections inside them**
   - If you are able to split a function into sections, then that function is probably doing multiple things.
 
-- [x] **Function should have one level of abstraction**
-  - We need to make sure that the statements within our function are all at the same level of abstraction.
-
-- [x] **The Stepdown Rule**
-  - The abstraction of a class should decrease as we go reading downwards.
-  
-- [x] **Switch statement should be buried in a low-level class, should appear only once, to create polymorphic objects and is never repeated**
-  - For example it can be in an `Abstract Factory`, but not to be seen anywhere else. 
-
 - [x] **Try to have functions with 3 arguments**
   - Try to keep no of arguments to 3/4.
   - The ideal number of arguments for a function is zero (niladic). Next comes one (monadic), followed closely by two (dyadic). Three arguments (triadic) should be avoided where possible. More than three (polyadic) requires very special justification
   - Practically it should never go beyond 4.
-
-- [x] **If a function is going to transform its input argument, the transformation should appear as the return value**
-  - If a function does transformation operation of it's input, then the output of that function should be the transformed value
-  - If a function is doing a transform of the input, it should do that that only.
 
 - [x] **Flag arguments should be avoided**
   - It does one thing if the flag is `true` and another if the flag is `false`, hence violating Single Responsibility.
@@ -214,40 +186,6 @@ A developer checklist mostly derived from the book **Clean Code by Robert C Mart
 - [x] **Data/object anti-symmetry**
   - Objects should hide their data behind abstractions and expose functions that operate on that data.
   - Data structure should expose their data and have no meaningful functions.
-
-- [x] **Choosing between Functional code and OO code**
-  - Functional code (code using data structures) makes it easy to add new functions without changing the existing data structures (using pattern matching). 
-  - OO code, on the other hand, makes it easy to add new classes (using polymorphism) without changing existing functions.
-  - In any complex system there are going to be times when we want to add new data types rather than new functions. For these cases objects and OO are most appropriate. 
-  - On the other hand, there will also be times when we’ll want to add new functions as opposed to data types. In that case procedural code and data structures will be more appropriate.
-  - Everything is an object is a myth. Sometimes you should just have simple data structures with procedures operating on them.
-
-- [x] **The law of demeter**
-  - a method f of a class C should only call the methods of these:
-    - [x] C
-    - [x] An object created by f
-    - [x] An object passed as an argument to f
-    - [x] An object held in an instance variable of C
-  - The method should not invoke methods on objects that are returned by any of the allowed functions.
-
-- [x] **Train Wrecks**
-  - ```
-    final String outputDir = ctxt.getOptions().getScratchDir().getAbsolutePath();
-    ```
-    This kind of chaining operations are called train wrecks and should be avoided.
-  - This is a violation of law of demeter as well, as we are invoking methods on objects that are returned.
-  - And this is only permitted if data structures are used instead of objects, as objects are not supposed to expose their data.
-  - But chained transformations are fine though 
-  ```
-  someList.map(..).map(..).filter(..)
-  ```
-
-- [x] **Hybrids, classes which have functions that do significant things, and they also have either public variables or public accessors and mutators**
-  - This might result in feature envy smell, as we are exposing access to variables, the caller might be tempted to use them.
-
-- [x] **DTOs should not have any behavior , i.e. they should be data-structure and not objects**
-  - DTOs/ Value objects should have a `equals` method.
-  - Any operation in a value object should return a new instance of that class.
   
 <br/>
 
