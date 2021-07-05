@@ -5,7 +5,6 @@ A developer checklist mostly derived from the book **Clean Code by Robert C Mart
   - [Naming things](#naming-things-u5272)
   - [Functions](#functions-microscope)
   - [Formatting](#formatting-rainbow)
-  - [Objects and Data Structures](#objects-and-data-structures-two_men_holding_hands)
   - [Error handling](#error-handling-interrobang)
   - [Unit tests](#unit-tests-umbrella)
   - [Class](#class-school_satchel)
@@ -171,22 +170,6 @@ A developer checklist mostly derived from the book **Clean Code by Robert C Mart
   - Collapsing everything in one line with short `ifs`, `loops`, `functions` is not a good idea.
   - Even for one line `ifs`, one line `whiles` - expand them into multiline and add indent.
 
-<br/>
-
----
-
-<br/>
-
-## Objects and Data Structures :two_men_holding_hands:
-
-- [x] **Hide implementation of classes with Abstraction**
-  - Do not expose variables out through getters and setters. Rather have abstract interfaces that allow users to manipulate the data, without having to know its implementation.
-  - We do not want to expose the details of our data. Rather we want to express our data in abstract terms.
-
-- [x] **Data/object anti-symmetry**
-  - Objects should hide their data behind abstractions and expose functions that operate on that data.
-  - Data structure should expose their data and have no meaningful functions.
-  
 <br/>
 
 ---
